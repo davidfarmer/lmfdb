@@ -1,0 +1,102 @@
+---
+first_zero: 1.1
+Lfunction_texname: $L(s,E, \mbox{Sym}^3)$
+muCC: [0,0]
+nuCC: [1.5,0.5]
+level: 1331
+character: 1.1
+analytic_conductor: 3.010101010101
+epsilon: 1
+url: L/SymmetricPower/3/EllipticCurve/Q/11.a/
+object_url:
+object_name: SymmetricPower
+self_dual: true
+arithmetic: true
+---
+first_zero: 5.06823463540603
+Lfunction_texname: $L(A,s)$
+nuCC: [0.5,0.5]
+muCC: [0,0]
+level: 169
+character: 1.1
+analytic_conductor:
+epsilon: 1
+url: L/Genus2Curve/Q/169/a/
+object_url: Genus2Curve/Q/169/a/
+object_name: genus 2 curve
+self_dual: true
+arithmetic: true
+---
+first_zero: 16.1890159765239
+Lfunction_texname: $L(s,f)$
+muRRRR: [16.89,2.272,-6.035]
+deltaRRRR: [0,0,0,0]
+level: 1
+character: 1.1
+analytic_conductor:
+epsilon: 1
+url: L/ModularForm/GL4/Q/Maass/GL4Maass_1_16.8997_2.27258_-6.0358/
+object_url: ModularForm/GL4/Q/Maass/GL4Maass_1_16.8997_2.27258_-6.0358/
+object_name: Maass for GL(4)
+self_dual: false
+arithmetic: false
+---
+first_zero: 3.67899147579236
+Lfunction_texname: $L(s,f)$
+deltaCC: $0$
+nuCC: [.5,.5]
+muCC: [0,0]
+level: 775
+character: 1.1
+analytic_conductor: 0.010101010101
+epsilon: 1
+url: L/ModularForm/GL2/TotallyReal/2.2.5.1/holomorphic/2.2.5.1-31.1-a/0/0/
+object_url: ModularForm/GL2/TotallyReal/2.2.5.1/holomorphic/2.2.5.1-31.1-a/0/0/
+object_name: Hilbert modular form over $\mathbb Q(\sqrt{5})$
+self_dual: true
+arithmetic: true
+---
+first_zero: 14.4960615102767
+Lfunction_texname: $L(s,\rho)$
+muRRRR: [$\pm 4.720$, $\pm 12.46$ ]
+deltaRRRR: [0,0,0,0]
+level: 1
+character: 1.1
+analytic_conductor:
+epsilon: 1
+url: L/ModularForm/GSp4/Q/Maass/GSp4Maass_1_12.4687_4.72095/
+object_url: ModularForm/GSp4/Q/Maass/GSp4Maass_1_12.4687_4.72095/
+object_name: Maass
+self_dual: true
+arithmetic: false
+---
+first_zero: 3.50464340448417
+Lfunction_texname: $L(s)$
+muRRRR: [0,0,0,0]
+deltaRRRR: [0,0,1,1]
+level: 1609
+character: 1.1
+analytic_conductor:
+epsilon: 1
+url: L/ArtinRepresentation/4/1609/1/
+object_url: ArtinRepresentation/4/1609/1/
+object_name: Artin
+self_dual: true
+arithmetic: true
+---
+first_zero: 2.48044952132596
+Lfunction_texname: $L(s,f)$
+muRRRR: [19.81, -19.81, 8.531]
+deltaRRRR: [0,0,0,0]
+level: 1
+character: 1.1
+analytic_conductor:
+epsilon: 1
+url: L/ModularForm/GSp4/Q/Maass/GSp4Maass_1_19.8193_8.53107/
+object_url: ModularForm/GSp4/Q/Maass/GSp4Maass_1_19.8193_8.53107/
+object_name: Sp(4,$\mathbb Z$) Maass
+self_dual: true
+arithmetic: false
+---
+
+********************************************
