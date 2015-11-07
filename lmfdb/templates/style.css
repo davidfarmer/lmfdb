@@ -107,10 +107,15 @@ body {
   margin-bottom: 10px;
 }
 a {
-  color: #292;
+  color: #060;
   text-decoration: none;
   font-family: sans-serif;
 }
+
+a:visited {
+  color: #060;
+}
+
 #content a {
 }
 #content .announce {
@@ -165,7 +170,6 @@ body.checklist {
  font-size: 70%;
 }
 
-a:visited { color: #080; }
 a:hover { 
   color: #000; 
   background: #cfc;  

@@ -70,9 +70,9 @@ def l_function_degree3_browse_page():
     return render_template("Degree3.html", title='Degree 3 L-functions', **info)
 
 # Degree 4 L-functions browsing page ##############################################
-@l_function_page.route("/degree4/")
+@l_function_page.route("/degree4/weight1/")
 def l_function_degree4_browse_page():
-    info = {"bread": get_bread(4, [])}
+    info = {"bread": get_bread(4, [("weight 1","")])}
     return render_template("Degree4.html", title='Degree 4 L-functions with weight 1 and rational integer coefficients', **info)
 
 # Degree browsing page #########################################################
