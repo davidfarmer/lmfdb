@@ -583,7 +583,8 @@ body.knowl form select:hover {
 }
 
 table {
-    border: 0;
+ /*   border: 0;
+*/
     border-collapse:collapse;
 }
 
