@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from flask import url_for
 from lmfdb.utils import web_latex, encode_plot
-from lmfdb.elliptic_curves import ec_logger
+from lmfdb.elliptic_curves import ec_logger, isogeny_graph_svg
 from lmfdb.elliptic_curves.web_ec import split_lmfdb_label, split_cremona_label, OPTIMALITY_BOUND
 from lmfdb import db
 
@@ -90,6 +90,8 @@ class ECisog_class(object):
         # Create isogeny graph with appropriate vertex labels:
         
         self.graph = make_graph(self.isogeny_matrix, [c['short_label'] for c in self.curves])
+        self.graph_svg = isogeny_graph_svg.graph_svg(self)
+
         P = self.graph.plot(edge_labels=True, vertex_size=1000)
         self.graph_img = encode_plot(P)
         self.graph_link = '<img src="%s" width="200" height="150"/>' % self.graph_img

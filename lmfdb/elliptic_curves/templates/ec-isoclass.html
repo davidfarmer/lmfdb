@@ -90,9 +90,9 @@ text-align: center;
 {{ place_code('plot') }}
 <p>The vertices are labelled with {{info.label_type}} labels. </p>
 <center>
+  {{info.graph_svg | safe}}
   <img src="{{info.graph_img}}" />
 </center>
-
 {% endif %}
 
 <script type="text/javascript">
