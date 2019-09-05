@@ -75,42 +75,42 @@ graphH = """
   <text x="62.0" y="82.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_curve2omega_</text>
   <text x="341.0" y="188.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_curve2torsion_</text>
   <text x="341.0" y="82.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_curve2degree_</text>
-  <text x="62" y="230.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_optimal2_</text>
+  <text x="62" y="232.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_optimal2_</text>
   <path d="M 1250 50 L 1250 200 L 1550 200 L 1550 50 L 1250 50 " stroke="_cardbordercolor_" fill="_cardfill_" stroke-width="_cardborderwidth_" />
   <text x="1400" y="140" text-anchor="middle" fill="_labelcolor_" style="font-family:verdana;font-size:300%" ><a href="_curve4urlcremona_">_curve4label_</a></text>
   <text x="1259.0" y="188.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_curve4sha_&middot;_curve4tamagawa_</text>
   <text x="1259.0" y="82.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_curve4omega_</text>
   <text x="1541.0" y="188.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_curve4torsion_</text>
   <text x="1541.0" y="82.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_curve4degree_</text>
-  <text x="1541.0" y="230.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_optimal4_</text>
+  <text x="1541.0" y="232.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_optimal4_</text>
   <path d="M 350 400 L 350 550 L 650 550 L 650 400 L 350 400 " stroke="_cardbordercolor_" fill="_cardfill_" stroke-width="_cardborderwidth_" />
   <text x="500" y="490" text-anchor="middle" fill="_labelcolor_" style="font-family:verdana;font-size:300%" ><a href="_curve0urlcremona_">_curve0label_</a></text>
   <text x="359.0" y="538.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_curve0sha_&middot;_curve0tamagawa_</text>
   <text x="359.0" y="432.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_curve0omega_</text>
   <text x="641.0" y="538.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_curve0torsion_</text>
   <text x="641.0" y="432.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_curve0degree_</text>
-  <text x="641.0" y="580.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_optimal0_</text>
+  <text x="641.0" y="582.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_optimal0_</text>
   <path d="M 950 400 L 950 550 L 1250 550 L 1250 400 L 950 400 " stroke="_cardbordercolor_" fill="_cardfill_" stroke-width="_cardborderwidth_" />
   <text x="1100" y="490" text-anchor="middle" fill="_labelcolor_" style="font-family:verdana;font-size:300%" ><a href="_curve1urlcremona_">_curve1label_</a></text>
   <text x="959.0" y="538.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_curve1sha_&middot;_curve1tamagawa_</text>
   <text x="959.0" y="432.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_curve1omega_</text>
   <text x="1241.0" y="538.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_curve1torsion_</text>
   <text x="1241.0" y="432.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_curve1degree_</text>
-  <text x="961" y="580.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_optimal1_</text>
+  <text x="961" y="582.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_optimal1_</text>
   <path d="M 50 750 L 50 900 L 350 900 L 350 750 L 50 750 " stroke="_cardbordercolor_" fill="_cardfill_" stroke-width="_cardborderwidth_" />
   <text x="200" y="840" text-anchor="middle" fill="_labelcolor_" style="font-family:verdana;font-size:300%" ><a href="_curve3urlcremona_">_curve3label_</a></text>
   <text x="59.0" y="888.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_curve3sha_&middot;_curve3tamagawa_</text>
   <text x="59.0" y="782.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_curve3omega_</text>
   <text x="341.0" y="888.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_curve3torsion_</text>
   <text x="341.0" y="782.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_curve3degree_</text>
-  <text x="61" y="930.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_optimal3_</text>
+  <text x="61" y="932.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_optimal3_</text>
   <path d="M 1250 750 L 1250 900 L 1550 900 L 1550 750 L 1250 750 " stroke="_cardbordercolor_" fill="_cardfill_" stroke-width="_cardborderwidth_" />
   <text x="1400" y="840" text-anchor="middle" fill="_labelcolor_" style="font-family:verdana;font-size:300%" ><a href="_curve5urlcremona_">_curve5label_</a></text>
   <text x="1259.0" y="888.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_curve5sha_&middot;_curve5tamagawa_</text>
   <text x="1259.0" y="782.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >_curve3omega_</text>
   <text x="1541.0" y="888.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_curve5torsion_</text>
   <text x="1541.0" y="782.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_curve5degree_</text>
-  <text x="1541.0" y="930.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_optimal5_</text>
+  <text x="1541.0" y="932.0" text-anchor="end" fill="#000" style="font-family:verdana;font-size:200%" >_optimal5_</text>
   
 </svg>
 
@@ -250,7 +250,7 @@ def isogeny_graph_legend():
 <svg viewBox="1000 750 800 150" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 
   <path d="M 1250 750 L 1250 900 L 1550 900 L 1550 750 L 1250 750 " stroke="#999" fill="#fdc" stroke-width="7" />
-  <text x="1400" y="840" text-anchor="middle" fill="#1565C0" style="font-family:verdana;font-size:200%" >Cremona label</text>
+  <text x="1400" y="835" text-anchor="middle" fill="#1565C0" style="font-family:verdana;font-size:200%" >Cremona label</text>
   <text x="1259.0" y="888.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >&SHCHcy;&middot;&Pi;c</text>
   <text x="1343.0" y="893.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:140%" >p</text>
   <text x="1259.0" y="782.0" text-anchor="start" fill="#000" style="font-family:verdana;font-size:200%" >&Omega;</text>
