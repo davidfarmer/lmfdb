@@ -88,7 +88,7 @@ text-align: center;
 
 <h2> {{ KNOWL('ec.isogeny_graph', title='Isogeny graph') }} </h2>
 {{ place_code('plot') }}
-<p>The vertices are labelled with {{info.label_type}} labels. </p>
+<p>The vertices are labelled with {{info.label_type}} labels. ({{ KNOWL('ec.isogenygraph.legend', title='Show legend') }})</p>
 <center>
   {{info.graph_svg | safe}}
   <img src="{{info.graph_img}}" />
