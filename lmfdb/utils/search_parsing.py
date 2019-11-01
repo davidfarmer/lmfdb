@@ -14,6 +14,7 @@ LIST_RE = re.compile(r'^(\d+|(\d*-(\d+)?))(,(\d+|(\d*-(\d+)?)))*$')
 FLOAT_STR = r'((\d+([.]\d*)?)|([.]\d+))(e[-+]?\d+)?'
 LIST_FLOAT_RE = re.compile(r'^({0}|{0}-|{0}-{0})(,({0}|{0}-|{0}-{0}))*$'.format(FLOAT_STR))
 BRACKETED_POSINT_RE = re.compile(r'^\[\]|\[\d+(,\d+)*\]$')
+BRACKETED_RAT_RE = re.compile(r'^\[\]|\[-?(\d+|\d+/\d+)(,-?(\d+|\d+/\d+))*\]$')
 QQ_RE = re.compile(r'^-?\d+(/\d+)?$')
 # Single non-negative rational, allowing decimals, used in parse_range2rat
 QQ_DEC_RE = re.compile(r'^\d+((\.\d+)|(/\d+))?$')
@@ -29,7 +30,7 @@ BRACKETING_RE = re.compile(r'(\[[^\]]*\])') # won't work for iterated brackets [
 
 
 class SearchParser(object):
-    def __init__(self, f, clean_info, prep_ranges, prep_plus, pass_name, default_field, default_name, default_qfield):
+    def __init__(self, f, clean_info, prep_ranges, prep_plus, pass_name, default_field, default_name, default_qfield,error_is_safe):
         self.f = f
         self.clean_info = clean_info
         self.prep_ranges = prep_ranges
@@ -38,6 +39,7 @@ class SearchParser(object):
         self.default_field = default_field
         self.default_name = default_name
         self.default_qfield = default_qfield
+        self.error_is_safe = error_is_safe # Indicates that the message in raised exception contains no user input, so it is not escaped
     def __call__(self, info, query, field=None, name=None, qfield=None, *args, **kwds):
         try:
             if field is None: field=self.default_field
@@ -68,14 +70,17 @@ class SearchParser(object):
             if self.clean_info:
                 info[field] = inp
         except (ValueError, AttributeError, TypeError) as err:
-            flash_error("<span style='color:black'>%s</span> is not a valid input for <span style='color:black'>%s</span>. %s", inp, name, str(err))
+            if self.error_is_safe:
+                flash_error("<span style='color:black'>%s</span> is not a valid input for <span style='color:black'>"+str(err)+"</span>. %s", inp, name)
+            else:
+                flash_error("<span style='color:black'>%s</span> is not a valid input for <span style='color:black'>%s</span>. %s", inp, name, str(err))
             info['err'] = ''
             raise
 
 @decorator_keywords
 def search_parser(f, clean_info=False, prep_ranges=False, prep_plus=False, pass_name=False,
-                  default_field=None, default_name=None, default_qfield=None):
-    return SearchParser(f, clean_info, prep_ranges, prep_plus, pass_name, default_field, default_name, default_qfield)
+                  default_field=None, default_name=None, default_qfield=None,error_is_safe=False):
+    return SearchParser(f, clean_info, prep_ranges, prep_plus, pass_name, default_field, default_name, default_qfield, error_is_safe)
 
 # Remove whitespace for simpler parsing
 # Remove brackets to avoid tricks (so we can echo it back safely)
@@ -511,11 +516,60 @@ def parse_bracketed_posints(inp, query, qfield, maxlength=None, exactlength=None
         else:
             inp = '[%s]'%','.join([str(a) for a in L])
             query[qfield] = inp if keepbrackets else inp[1:-1]
+            
+@search_parser(clean_info=True) # see SearchParser.__call__ for actual arguments when calling
+def parse_bracketed_rats(inp, query, qfield, maxlength=None, exactlength=None, split=True, process=None, listprocess=None, keepbrackets=False, extractor=None):
+    if (not BRACKETED_RAT_RE.match(inp) or
+        (maxlength is not None and inp.count(',') > maxlength - 1) or
+        (exactlength is not None and inp.count(',') != exactlength - 1) or
+        (exactlength is not None and inp == '[]' and exactlength > 0)):
+        if exactlength == 2:
+            lstr = "pair of rational numbers"
+            example = "[2,3/2] or [3,3]"
+        elif exactlength == 1:
+            lstr = "list of 1 rational number"
+            example = "[2/5]"
+        elif exactlength is not None:
+            lstr = "list of %s rational numbers" % exactlength
+            example = str(range(2,exactlength+2)).replace(", ","/13,") + " or " + str([3]*exactlength).replace(", ","/4,")
+        elif maxlength is not None:
+            lstr = "list of at most %s rational numbers" % maxlength
+            example = str(range(2,maxlength+2)).replace(", ","/13,") + " or " + str([2]*max(1, maxlength-2)).replace(", ","/41,")
+        else:
+            lstr = "list of rational numbers"
+            example = "[1/7,2,3] or [5,6/71]"
+        raise ValueError("It needs to be a %s in square brackets, such as %s." % (lstr, example))
+    else:
+        if inp == '[]': # fixes bug in the code below (split never returns an empty list)
+            if split:
+                query[qfield] = []
+            else:
+                query[qfield] = ''
+            return
+        L = [QQ(a) for a in inp[1:-1].split(',')]
+        if process is not None:
+            L = [process(a) for a in L]
+        if listprocess is not None:
+            L = listprocess(L)
+        if extractor is not None:
+            for qf, v in zip(qfield, extractor(L)):
+                if qf in query and query[qf] != v:
+                    raise ValueError("Inconsistent specification of %s: %s vs %s"%(qf, query[qf], v))
+                query[qf] = v
+        elif split:
+            query[qfield] = L
+        else:
+            inp = '[%s]'%','.join([str(a) for a in L])
+            if keepbrackets:
+                inp = inp.replace("[","['").replace("]","']").replace(",","','")
+                query[qfield] = inp
+            else:
+                query[qfield] = inp[1:-1]
 
 def parse_gap_id(info, query, field='group', name='Group', qfield='group'):
     parse_bracketed_posints(info,query,field, split=False, exactlength=2, keepbrackets=True, name=name, qfield=qfield)
 
-@search_parser(clean_info=True, default_field='galois_group', default_name='Galois group', default_qfield='galois') # see SearchParser.__call__ for actual arguments when calling
+@search_parser(clean_info=True, default_field='galois_group', default_name='Galois group', default_qfield='galois', error_is_safe=True) # see SearchParser.__call__ for actual arguments when calling
 def parse_galgrp(inp, query, qfield):
     from lmfdb.galois_groups.transitive_group import complete_group_codes
     try:
